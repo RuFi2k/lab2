@@ -7,15 +7,17 @@ const Submissions: React.FC = () => {
         const submissions: string[] = JSON.parse(localStorage.getItem('submissions') || '[]');
         setItems(submissions);
     }, []);
-    return <>
+    return <div className="quiz">
         <h2>Your fancy pets!!!</h2>
-        <div>
-            <Link to="/">Go home</Link>
+        <div style={{ paddingBottom: "30px" }}>
+            <Link to="/" className="mainButton">Go home</Link>
         </div>
-        {items.map(item => (
-            <img src={item} />
-        ))}
-    </>;
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
+            {items.map(item => (
+                <img src={item} className="image" />
+            ))}
+        </div>
+    </div>;
 };
 
 export default Submissions;

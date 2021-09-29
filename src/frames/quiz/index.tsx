@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import Completed from "../../components/completed";
 import { GetQuestion } from "../../services";
 import { Answer, Question } from "../../services/questions";
 
 const Quiz: React.FC = () => {
     const [questions, setQuestions] = React.useState<Question[]>([]);
-    const [score, setScore] = React.useState<number>(0);
+    const [score, setScore] = React.useState<{ [t: string]: number}>({});
     const [completed, setCompleted] = React.useState<boolean>(false);
     const [questionStatuses, setStatuses] = React.useState<{[t: string]: boolean}>({});
     const [disabled, setDisabled] = React.useState<boolean>(true);
@@ -33,7 +32,7 @@ const Quiz: React.FC = () => {
             ...prev,
             [question.text]: true,
         }));
-        setScore(answer.value);
+        setScore(prev => ({ ...prev, [question.text]: answer.value }));
     };
 
     const submit = () => {
@@ -41,21 +40,26 @@ const Quiz: React.FC = () => {
     }
 
     if(completed){
-        return <Completed isCat={score < 0} />
+        return <Completed isCat={Object.keys(score).reduce((a, b) => a + score[b], 0) < 0} />
     }
 
-    return <>
+    return <div className="quiz">
         <h1>Answer the quiz and get your pet!</h1>
         {questions.map((question, id) => (
             <div key={id}>
                 <p>{question.text}</p>
                 {question.answers.map((answer, key) => (
-                    <p key={key} onClick={() => toggleAnswer(question, answer)}>{answer.text}</p>
+                    <p
+                        key={key}
+                        className={"answer " + (score[question.text] === answer.value ? "selected" : "")}
+                        onClick={() => toggleAnswer(question, answer)}>
+                        {answer.text}
+                    </p>
                 ))}
             </div>
         ))}
         <button onClick={submit} disabled={disabled}>Complete quiz</button>
-    </>;
+    </div>;
 };
 
 export default Quiz;
