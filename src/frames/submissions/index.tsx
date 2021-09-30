@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import * as STRINGS from './strings';
 
 const Submissions: React.FC = () => {
     const [items, setItems] = React.useState<string[]>([]);
@@ -8,9 +9,9 @@ const Submissions: React.FC = () => {
         setItems(submissions);
     }, []);
     return <div className="quiz">
-        <h2>Your fancy pets!!!</h2>
+        <h2>{STRINGS.HEADING}</h2>
         <div style={{ paddingBottom: "30px" }}>
-            <Link to="/" className="mainButton">Go home</Link>
+            <Link to="/" className="mainButton">{STRINGS.HOME}</Link>
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
             {items.map(item => (

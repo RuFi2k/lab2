@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import * as Pages from './frames';
 import './App.css';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact component={Pages.Home} />
-        <Route path="/quiz" exact component={Pages.Quiz} />
-        <Route path="/answers" exact component={Pages.Submissions} />
-        <Redirect to="/" />
-      </Switch>
-    </Router>
+    <Suspense fallback={"Loading..."}>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={React.lazy(() => import('./frames/home'))} />
+          <Route path="/quiz" exact component={React.lazy(() => import('./frames/quiz'))} />
+          <Route path="/answers" exact component={React.lazy(() => import('./frames/submissions'))} />
+          <Redirect to="/" />
+        </Switch>
+      </Router>
+    </Suspense>
   );
 }
 

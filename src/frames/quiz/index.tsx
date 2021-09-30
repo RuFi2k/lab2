@@ -2,6 +2,8 @@ import React from "react";
 import Completed from "../../components/completed";
 import { GetQuestion } from "../../services";
 import { Answer, Question } from "../../services/questions";
+import QuestionRow from "./components/Question";
+import * as STRINGS from './strings';
 
 const Quiz: React.FC = () => {
     const [questions, setQuestions] = React.useState<Question[]>([]);
@@ -44,21 +46,16 @@ const Quiz: React.FC = () => {
     }
 
     return <div className="quiz">
-        <h1>Answer the quiz and get your pet!</h1>
+        <h1>{STRINGS.HEADING}</h1>
         {questions.map((question, id) => (
-            <div key={id}>
-                <p>{question.text}</p>
-                {question.answers.map((answer, key) => (
-                    <p
-                        key={key}
-                        className={"answer " + (score[question.text] === answer.value ? "selected" : "")}
-                        onClick={() => toggleAnswer(question, answer)}>
-                        {answer.text}
-                    </p>
-                ))}
-            </div>
+            <QuestionRow
+                key={id}
+                question={question}
+                score={score[question.text]}
+                onClick={(question, answer) => toggleAnswer(question, answer)}
+            />
         ))}
-        <button onClick={submit} disabled={disabled}>Complete quiz</button>
+        <button onClick={submit} disabled={disabled}>{STRINGS.COMPLETE}</button>
     </div>;
 };
 

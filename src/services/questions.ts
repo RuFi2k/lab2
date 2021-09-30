@@ -34,11 +34,6 @@ export const QUESTIONS: Question[] = [
         {text: 'Not sure', value: 0},
         {text: 'Yes', value: 1},
     ]},
-    // {text: '', answers: [
-    //     {text: 'ans', value: -1},
-    //     {text: 'ans', value: 0},
-    //     {text: 'ans', value: 1},
-    // ]},
 ];
 
 export const isEqual = (q1: Question, q2: Question) => q1.text === q2.text;
