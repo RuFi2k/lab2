@@ -11,7 +11,7 @@ const Submissions: React.FC = () => {
         setItems(submissions);
     }, []);
 
-    return (<Layout style={{ height: "100vh" }}>
+    return (<Layout style={{ minHeight: "100vh" }}>
         <Content>
             <Card title={STRINGS.HEADING} style={{ maxWidth: 1000, margin: "50px auto 0" }}>
                 <Row style={{ marginBottom: 16 }} justify="center">

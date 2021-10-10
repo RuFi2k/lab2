@@ -47,7 +47,7 @@ const Quiz: React.FC = () => {
         return <Completed isCat={Object.keys(score).reduce((a, b) => a + score[b], 0) < 0} />
     }
 
-    return (<Layout style={{ height: "100vh" }}>
+    return (<Layout style={{ minHeight: "100vh" }}>
         <Content>
             <Card title={STRINGS.HEADING} style={{ maxWidth: 1000, margin: "50px auto 0" }}>
                 <List
