@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <Suspense fallback={"Loading..."}>
+    <Suspense fallback={"Завантаження..."}>
       <Router>
         <Switch>
           <Route path="/" exact component={React.lazy(() => import('./frames/home'))} />

@@ -1,2 +1,2 @@
-export const START = 'Start quiz';
-export const SUBMISSIONS = 'My submissions';
+export const START = 'Розпочати опитувальник';
+export const SUBMISSIONS = 'Мої результати';

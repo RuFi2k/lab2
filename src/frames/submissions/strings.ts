@@ -1,2 +1,2 @@
-export const HEADING = 'Your fancy pets!!!';
-export const HOME = 'Go home';
+export const HEADING = 'Ваші чудові домашні улюбленці !!!';
+export const HOME = 'Повернутися на головну сторінку';

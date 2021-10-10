@@ -1,3 +1,3 @@
-export const CONGRATULATIONS = 'Congratulations on your submission!!!';
-export const HOME = 'Go home';
-export const LOADING = 'Loading...';
+export const CONGRATULATIONS = 'Вітаємо з вашим результатом!!!';
+export const HOME = 'Повернутися на головну сторінку';
+export const LOADING = 'Завантаження...';
