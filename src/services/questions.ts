@@ -24,7 +24,7 @@ export const QUESTIONS: Question[] = [
         ]
     },
     {
-        text: 'Are you lazy person?', answers: [
+        text: 'Ви лінива людина?', answers: [
             { text: 'Так', value: -1 },
             { text: 'Можливо', value: 0 },
             { text: 'Ні', value: 1 },
