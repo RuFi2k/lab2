@@ -46,4 +46,42 @@ export const QUESTIONS: Question[] = [
     },
 ];
 
+export const PEOPLE_QUESTIONS: Question[] = [
+    {
+        text: 'Question 1?', answers: [
+            { text: 'Рідко', value: -1 },
+            { text: 'Іноді', value: 0 },
+            { text: 'Часто', value: 1 },
+        ]
+    },
+    {
+        text: 'Question 2?', answers: [
+            { text: 'Ні', value: -1 },
+            { text: 'Не впевнений', value: 0 },
+            { text: 'Так', value: 1 },
+        ]
+    },
+    {
+        text: 'Question 3?', answers: [
+            { text: 'Так', value: -1 },
+            { text: 'Можливо', value: 0 },
+            { text: 'Ні', value: 1 },
+        ]
+    },
+    {
+        text: 'Question 4?', answers: [
+            { text: 'Майже ніколи', value: -1 },
+            { text: 'Іноді', value: 0 },
+            { text: 'Регулярно', value: 1 },
+        ]
+    },
+    {
+        text: 'Question 5?', answers: [
+            { text: 'Ні', value: -1 },
+            { text: 'Не впевнений', value: 0 },
+            { text: 'Так', value: 1 },
+        ]
+    },
+];
+
 export const isEqual = (q1: Question, q2: Question) => q1.text === q2.text;

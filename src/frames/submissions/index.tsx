@@ -23,7 +23,7 @@ const Submissions: React.FC = () => {
                 </Row>
                 <Row align="middle" gutter={[16, 16]} justify="center">
                     {items.map(item => (
-                        <Col>
+                        <Col key={item}>
                             <Image width={400} src={item} />
                         </Col>
                     ))}

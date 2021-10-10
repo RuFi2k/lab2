@@ -15,6 +15,13 @@ const Home: React.FC = () => {
                     </Link>
                 </Col>
                 <Col>
+                    <Link to="/quiz/people">
+                        <Button>
+                            {STRINGS.START_PEOPLE}
+                        </Button>
+                    </Link>
+                </Col>
+                <Col>
                     <Link to="/answers">
                         <Button>
                             {STRINGS.SUBMISSIONS}
