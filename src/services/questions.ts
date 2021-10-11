@@ -44,6 +44,41 @@ export const QUESTIONS: Question[] = [
             { text: 'Так', value: 1 },
         ]
     },
+    {
+        text: 'Чи є у вас діти у домі?', answers: [
+            { text: 'Ні', value: -1 },
+            { text: 'Не впевнений', value: 0 },
+            { text: 'Так', value: 1 },
+        ]
+    },
+    {
+        text: 'У вас вже є домашні улюбленці?', answers: [
+            { text: 'Ні', value: -1 },
+            { text: 'Так, ще один улюбленець', value: 0 },
+            { text: 'Так, ще кілька тваринок', value: 1 },
+        ]
+    },
+    {
+        text: 'Ви алергік?', answers: [
+            { text: 'Ні', value: -1 },
+            { text: 'Не впевнений', value: 0 },
+            { text: 'Так', value: 1 },
+        ]
+    },
+    {
+        text: 'Чи дратує вас шерсть на меблях?', answers: [
+            { text: 'Ні', value: -1 },
+            { text: 'Готовий регулярно її прибирати', value: 0 },
+            { text: 'Так', value: 1 },
+        ]
+    },
+    {
+        text: 'Наскільки велике ваше житло?', answers: [
+            { text: 'Одна або дві кімнати', value: -1 },
+            { text: 'Велика квартира', value: 0 },
+            { text: 'Приватний будинок', value: 1 },
+        ]
+    }
 ];
 
 export const PEOPLE_QUESTIONS: Question[] = [
