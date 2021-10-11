@@ -1,2 +1,2 @@
-export const HEADING = 'Answer the quiz and get your pet!';
-export const COMPLETE = 'Complete quiz';
+export const HEADING = 'Дайте відповідь на запитання та отримайте свого улюбленця!';
+export const COMPLETE = 'Завершити опитувальник';

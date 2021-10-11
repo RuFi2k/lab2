@@ -2,7 +2,8 @@ import { Button, Card, Layout, List, Radio } from "antd";
 import { Content, Footer } from "antd/lib/layout/layout";
 import React from "react";
 import Completed from "../../components/completed";
-import { GetQuestion } from "../../services";
+import CompletedPeople from "../../components/completed-people";
+import { GetPeopleQuestion, GetQuestion } from "../../services";
 import { Answer, Question } from "../../services/questions";
 import QuestionRow from "./components/Question";
 import * as STRINGS from './strings';
@@ -17,7 +18,7 @@ const Quiz: React.FC = () => {
         for (let i = 0; i < 5; ++i) {
             let generated: any;
             setQuestions(prev => {
-                generated = GetQuestion(prev);
+                generated = GetPeopleQuestion(prev);
                 return [...prev, generated];
             });
             setStatuses(prev => ({
@@ -44,7 +45,7 @@ const Quiz: React.FC = () => {
     }
 
     if (completed) {
-        return <Completed isCat={Object.keys(score).reduce((a, b) => a + score[b], 0) < 0} />
+        return <CompletedPeople isMan={Object.keys(score).reduce((a, b) => a + score[b], 0) < 0} />
     }
 
     return (<Layout style={{ minHeight: "100vh" }}>
@@ -58,11 +59,8 @@ const Quiz: React.FC = () => {
                         <List.Item>
                             <List.Item.Meta title={question.text} style={{ margin: 0 }} />
                             <Radio.Group
-                                options={question.answers.map((answer, index) => ({
-                                    label: answer.text,
-                                    value: index,
-                                }))}
-                                onChange={(e) => toggleAnswer(question, question.answers[e.target.value])}
+                                options={question.answers.map((answer, index) => ({ label: answer.text, value: index }))}
+                                onChange={e => toggleAnswer(question, question.answers[e.target.value])}
                                 optionType='button'
                                 buttonStyle='solid'
                             />

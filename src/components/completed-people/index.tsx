@@ -9,25 +9,24 @@ import {
 } from '@ant-design/icons';
 
 type Props = {
-    isCat: boolean
+    isMan: boolean
 }
 
-const Completed: React.FC<Props> = ({ isCat }) => {
-    const link = isCat ? API_LINKS.CAT : API_LINKS.DOG;
+const CompletedPeople: React.FC<Props> = ({ isMan }) => {
+    const link = API_LINKS.PERSON;
     const [image, setImage] = React.useState<string>('');
     const [loading, setLoading] = React.useState<boolean>(true);
 
     React.useEffect(() => {
         const fetchData = async (link: string) => {
-            let response = { url: '', file: '' }; //just ignoring ts warnings
+            let response: any; //just ignoring ts warnings
             do {
                 const data = await fetch(link);
                 response = await data.json();
-            } while (!AllowedFormats.some(format => (response.url || response.file).endsWith(format)))
-            const submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
-            localStorage.setItem('submissions', JSON.stringify([...submissions, response.url || response.file]));
+                response = response.results[0];
+            } while (!AllowedFormats.some(format => (response.picture.large || response.picture.large).endsWith(format)) || (isMan && response.gender !== 'male') || (!isMan && response.gender !== 'female'))
             setLoading(false);
-            setImage(response.url || response.file);
+            setImage(response.picture.large);
         };
 
         fetchData(link);
@@ -51,4 +50,4 @@ const Completed: React.FC<Props> = ({ isCat }) => {
     );
 };
 
-export default Completed;
+export default CompletedPeople;
