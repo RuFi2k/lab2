@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+/* 
 .image {
   object-fit: cover;
   width: 500px;
@@ -40,6 +42,7 @@
   border-radius: 2px;
   transition: 0.3s;
   cursor: pointer;
+  text-align: center;
 }
 
 .answer:hover {
@@ -50,4 +53,4 @@
 .answer.selected {
   background-color: #292929;
   color: #fff;
-}
+} */
